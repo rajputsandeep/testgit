@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+
+<head>
+
+</head>
+
+<body>
+
+    <h2>HTML Forms</h2>
+
+    <form method="POST" name="HtmlForm">
+        <label for="fname">Name:</label><br>
+        <input type="text" id="fname" name="Name" placeholder="Enter your Name"><br>
+        <label for="lname">Email:</label><br>
+        <input type="text" id="mob" name="Email" placeholder="Enter your Email"><br><br>
+
+        <label for="lname">Mobile:</label><br>
+        <input type="text" id="email" name="Mobile" placeholder="Enter your Mobile"><br><br>
+        <input type="submit" name="submit">
+    </form>
+
+
+    <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbzFiBE0NFzk4uMpxTrrhleJKMvyGjxi0RCF8iT1NWkhh4QD6Bz-JOzYgdiJRRXeQ9HR/exec'
+        const form = document.forms['HtmlForm']
+
+        form.addEventListener('submit', e => {
+            e.preventDefault()
+            fetch(scriptURL, {
+                    method: 'POST',
+                    body: new FormData(form)
+                })
+                .then(response => alert("Thanks for Contacting us..! We Will Contact You Soon..."))
+                .catch(error => console.error('Error!', error.message))
+        })
+    </script>
+
+</body>
+
+</html>
